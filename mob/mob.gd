@@ -10,7 +10,6 @@ func _physics_process(delta: float) -> void:
 
 func initialize(start_position, player_position):
 	look_at_from_position(start_position, player_position, Vector3.UP)
-	
 	rotate_y(randf_range(-PI / 4, PI / 4))
 	
 	var random_speed = randi_range(min_speed, max_speed)
