@@ -30,6 +30,8 @@ mob_scene = ExtResource("2_h2yge")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=572806336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1490499964]
 shape = SubResource("BoxShape3D_8d472")
@@ -53,6 +55,7 @@ size = 19.0
 
 [node name="Cylinders" type="Node3D" parent="." unique_id=2013348974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.260498, 0, -14.365551)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinders" unique_id=133131440]
 mesh = SubResource("CylinderMesh_8d472")
