@@ -4,7 +4,7 @@ signal hit
 
 @export var speed = 14
 @export var fall_acceleration = 75
-@export var jump_impulse = 20
+@export var jump_impulse = 25
 @export var bounce_impulse = 16
 
 var target_velocity = Vector3.ZERO
@@ -24,6 +24,9 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		$Pivot.basis = Basis.looking_at(direction)
+		$AnimationPlayer.speed_scale = 4
+	else:
+		$AnimationPlayer.speed_scale = 1
 	
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
@@ -49,6 +52,8 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = target_velocity
 	move_and_slide()
+	
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 
 func die():
 	hit.emit()
